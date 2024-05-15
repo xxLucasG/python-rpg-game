@@ -1,0 +1,1 @@
+from cardinal_direction_command_argument_type import CardinalDirectionCommandArgumentType

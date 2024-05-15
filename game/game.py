@@ -1,4 +1,8 @@
+from game import GoCommand
+from utils.tui import CommandRegistry, Command
+
 VERSION = "1.0.1"
+
 
 def showInstructions():
     #print a main menu and the commands
@@ -11,6 +15,7 @@ def showInstructions():
         go [direction]
         get [item]
     ''')
+
 
 def showStatus():
     #print the player's current status
@@ -25,6 +30,12 @@ def showStatus():
 
 
 if __name__ == '__main__':
+    command_registry = CommandRegistry()
+
+    go_command = GoCommand()
+
+    command_registry.register_command(go_command)
+
     inventory = []
 
     rooms = {
