@@ -33,8 +33,8 @@ To win the game, reach the Garden with both the key and the potion in your inven
 3. Use the commands wisely to avoid dangers and progress toward victory.
 
 Good luck, adventurer!
-
+<hr>
 <details>
-<summary style="font-size:20px; font-weight:bold;">Activity diagramm</summary>
+<summary style="font-size:20px; font-weight:bold;"><span style="font-size:20px; font-weight:bold;">Activity diagramm</span></summary>
 <img src="./docs/activity-diagram.svg" alt="./docs/activity-diagram.svg">
 </details>
