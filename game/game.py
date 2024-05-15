@@ -1,3 +1,5 @@
+VERSION = "1.0.1"
+
 def showInstructions():
     #print a main menu and the commands
     print('''
