@@ -1,4 +1,5 @@
-from game import GoCommand
+from game import GoCommand, GetCommand
+from utils.rpglib import Namespace, Item
 from utils.tui import CommandRegistry, Command
 
 VERSION = "1.0.1"
@@ -30,25 +31,28 @@ def showStatus():
 
 
 if __name__ == '__main__':
+    namespace = Namespace('magicpaths')
     command_registry = CommandRegistry()
 
-    go_command = GoCommand()
+    go_command = GoCommand(namespace)
+    get_command = GetCommand(namespace)
 
     command_registry.register_command(go_command)
+    command_registry.register_command(get_command)
 
     inventory = []
 
     rooms = {
         'Hall': {'south': 'Kitchen',
                  'east': 'Dining Room',
-                 'item': 'key'
+                 'item': Item(namespace, 'key')
                  },
         'Kitchen': {'north': 'Hall',
-                    'item': 'monster'
+                    'item': Item(namespace, 'monster')
                     },
         'Dining Room': {'west': 'Hall',
                         'south': 'Garden',
-                        'item': 'potion'
+                        'item': Item(namespace, 'potion')
                         },
         'Garden': {'north': 'Dining Room'}
     }
