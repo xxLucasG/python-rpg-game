@@ -1,9 +1,10 @@
-from utils import Registry, EventEmitter
+import utils.utils
 
 
-class CommandRegistry(Registry, EventEmitter):
+class CommandRegistry(utils.utils.registry.Registry, utils.utils.event.event_emitter.EventEmitter):
     def __init__(self):
-        super().__init__()
+        utils.utils.registry.Registry.__init__(self)
+        utils.utils.event.event_emitter.EventEmitter.__init__(self)
 
     def execute(self, command, *args):
         if self.emit('on_command_execute', command, args):

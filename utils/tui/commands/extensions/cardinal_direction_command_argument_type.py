@@ -1,8 +1,9 @@
-from utils import CardinalDirection
-from utils.tui import CommandArgumentType
+from ....utils.cardinal_direction import CardinalDirection
+
+from .. import command_argument_types
 
 
-class CardinalDirectionCommandArgumentType(CommandArgumentType):
+class CardinalDirectionCommandArgumentType(command_argument_types.CommandArgumentType):
     cardinal_directions = {"north": CardinalDirection.NORTH,
                            "south": CardinalDirection.SOUTH,
                            "east": CardinalDirection.EAST,

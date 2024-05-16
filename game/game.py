@@ -1,7 +1,8 @@
-from game import GoCommand, GetCommand
 from utils import CardinalDirection
 from utils.rpglib import Namespace, Item
 from utils.tui import CommandRegistry, Command
+from commands import GoCommand, GetCommand
+from utils.tui.commands.extensions import CardinalDirectionCommandArgumentType
 
 VERSION = "1.0.1"
 
@@ -27,7 +28,7 @@ def showStatus():
     print('Inventory : ' + str(inventory))
     #print an item if there is one
     if "item" in rooms[currentRoom]:
-        print('You see a ' + rooms[currentRoom]['item'])
+        print('You see a ' + rooms[currentRoom]['item'].identifier)
         print("---------------------------")
 
 
@@ -70,18 +71,19 @@ if __name__ == '__main__':
         if move[0] == "exit":
             break
         if move[0] == 'go':
-            if move[1] in rooms[currentRoom]:
-                currentRoom = rooms[currentRoom][move[1]]
+            direction = CardinalDirectionCommandArgumentType.get_parsed(move[1])
+            if direction in rooms[currentRoom]:
+                currentRoom = rooms[currentRoom][direction]
             else:
                 print('You can\'t go that way!')
         if move[0] == 'get':
-            if 'item' in rooms[currentRoom] and move[1] in rooms[currentRoom]['item']:
+            if 'item' in rooms[currentRoom] and move[1] in rooms[currentRoom]['item'].identifier:
                 inventory += [move[1]]
                 print(move[1] + ' got!')
                 del rooms[currentRoom]['item']
             else:
                 print('Can\'t get ' + move[1] + '!')
-        if 'item' in rooms[currentRoom] and 'monster' in rooms[currentRoom]['item']:
+        if 'item' in rooms[currentRoom] and 'monster' in rooms[currentRoom]['item'].identifier:
             print('A monster has got you... GAME OVER!')
             break
         if currentRoom == 'Garden' and 'key' in inventory and 'potion' in inventory:

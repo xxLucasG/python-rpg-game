@@ -1,6 +1,6 @@
-from utils import Registry
+import utils.utils.registry
 
 
-class ItemRegistry(Registry):
+class ItemRegistry(utils.utils.registry.Registry):
     def __init__(self):
         super().__init__()

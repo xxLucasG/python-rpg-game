@@ -1,7 +1,7 @@
 import enum
 
 
-class Direction2D(enum.Enum):
+class Direction2D:
     UP = enum.auto()
     DOWN = enum.auto()
     LEFT = enum.auto()

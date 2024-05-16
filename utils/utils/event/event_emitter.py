@@ -9,11 +9,12 @@ class EventEmitter:
 
     def emit(self, name, *args):
         result = True
-        with self.listeners_lock:
-            for listener in self.listeners[name]:
-                if listener.trigger(*args) == False:
-                    result = False
-                    break
+        self.listeners_lock.acquire()
+        for listener in self.listeners[name]:
+            if listener.trigger(*args) == False:
+                result = False
+                break
+        self.listeners_lock.release()
         return result
 
     def on(self, name, listener):

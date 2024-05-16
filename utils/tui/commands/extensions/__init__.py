@@ -1,2 +1,2 @@
-from cardinal_direction_command_argument_type import CardinalDirectionCommandArgumentType
-from item_command_argument_type import ItemCommandArgumentType
+from .cardinal_direction_command_argument_type import CardinalDirectionCommandArgumentType
+from .item_command_argument_type import ItemCommandArgumentType

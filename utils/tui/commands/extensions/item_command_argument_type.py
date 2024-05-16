@@ -1,8 +1,8 @@
 from utils.rpglib import Item
-from utils.tui import CommandArgumentType
+from .. import command_argument_types
 
 
-class ItemCommandArgumentType(CommandArgumentType):
+class ItemCommandArgumentType(command_argument_types.CommandArgumentType):
     def __init__(self, namespace):
         self.namespace = namespace
         super().__init__(self._validation_function)

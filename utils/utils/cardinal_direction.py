@@ -1,6 +1,6 @@
 import enum
 
-from utils import Direction2D
+from .direction2d import Direction2D
 
 
 class CardinalDirection(Direction2D):

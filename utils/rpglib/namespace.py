@@ -1,7 +1,7 @@
-from utils import Registry
+import utils.utils.registry
 
 
-class Namespace(Registry):
+class Namespace(utils.utils.registry.Registry):
     def __init__(self, name):
         super().__init__()
         self.name = name

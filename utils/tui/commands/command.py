@@ -1,6 +1,3 @@
-from utils.tui import CommandArgument
-
-
 class Command:
     def __init__(self, name, fun, namespace, *args):
         self.name = name
@@ -20,6 +17,8 @@ class Command:
 
     @staticmethod
     def _are_arguments_valid(arguments: tuple | list) -> bool:
+        from utils.tui import CommandArgument
+
         for arg in arguments:
             if not isinstance(arg, CommandArgument):
                 return False
