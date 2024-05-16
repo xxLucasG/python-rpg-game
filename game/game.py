@@ -1,4 +1,5 @@
 from game import GoCommand, GetCommand
+from utils import CardinalDirection
 from utils.rpglib import Namespace, Item
 from utils.tui import CommandRegistry, Command
 
@@ -43,18 +44,18 @@ if __name__ == '__main__':
     inventory = []
 
     rooms = {
-        'Hall': {'south': 'Kitchen',
-                 'east': 'Dining Room',
+        'Hall': {CardinalDirection.SOUTH: 'Kitchen',
+                 CardinalDirection.EAST: 'Dining Room',
                  'item': Item(namespace, 'key')
                  },
-        'Kitchen': {'north': 'Hall',
+        'Kitchen': {CardinalDirection.NORTH: 'Hall',
                     'item': Item(namespace, 'monster')
                     },
-        'Dining Room': {'west': 'Hall',
-                        'south': 'Garden',
+        'Dining Room': {CardinalDirection.WEST: 'Hall',
+                        CardinalDirection.SOUTH: 'Garden',
                         'item': Item(namespace, 'potion')
                         },
-        'Garden': {'north': 'Dining Room'}
+        'Garden': {CardinalDirection.NORTH: 'Dining Room'}
     }
 
     currentRoom = 'Hall'
