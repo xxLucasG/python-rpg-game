@@ -1,3 +1,4 @@
+from game.commands.exit import ExitCommand
 from utils import CardinalDirection
 from utils.rpglib import Namespace, Item
 from utils.tui import CommandRegistry, Command
@@ -38,9 +39,11 @@ if __name__ == '__main__':
 
     go_command = GoCommand(namespace)
     get_command = GetCommand(namespace)
+    exit_command = ExitCommand(namespace)
 
     command_registry.register_command(go_command)
     command_registry.register_command(get_command)
+    command_registry.register_command(exit_command)
 
     inventory = []
 
