@@ -13,7 +13,8 @@ class GoCommand(Command):
     def _command_functionality(direction: CardinalDirection):
         ...
 
-    def __init__(self):
+    def __init__(self, namespace):
         super().__init__("go",
                          GoCommand._command_functionality,
+                         namespace,
                          GoCommand._get_1st_argument())
